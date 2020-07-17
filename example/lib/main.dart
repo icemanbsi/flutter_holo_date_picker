@@ -86,6 +86,7 @@ class _WidgetPageState extends State<WidgetPage> {
                 ),
                 dividerColor: Colors.black38,
                 dividerStyle: DateTimePickerDividerStyle.solid,
+                itemHeight: 50
               ),
             ),
           ),
