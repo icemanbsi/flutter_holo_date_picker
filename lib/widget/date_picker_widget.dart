@@ -194,7 +194,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
                 backgroundColor: widget.pickerTheme.backgroundColor,
                 scrollController: scrollCtrl,
                 squeeze: 0.95,
-                diameterRatio: 1.5,
+                diameterRatio: 5,
                 itemExtent: widget.pickerTheme.itemHeight,
                 onSelectedItemChanged: valueChanged,
                 looping: widget.looping,
@@ -211,15 +211,19 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
+                    SizedBox(width: MediaQuery.of(context).size.width 
+                      * (widget.pickerTheme.dividerStyle == DateTimePickerDividerStyle.separated ? 0.02 : 0)
+                    ),
                     Expanded(
                       child: Divider(
-                        color: widget.pickerTheme.itemTextStyle.color,
+                        color: widget.pickerTheme.dividerColor ?? widget.pickerTheme.itemTextStyle.color,
                         height: 1,
                         thickness: 2,
                       ),
                     ),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.02)
+                    SizedBox(width: MediaQuery.of(context).size.width 
+                      * (widget.pickerTheme.dividerStyle == DateTimePickerDividerStyle.separated ? 0.02 : 0)
+                    )
                   ],
                 )),
           ),
@@ -229,15 +233,19 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
+                    SizedBox(width: MediaQuery.of(context).size.width 
+                      * (widget.pickerTheme.dividerStyle == DateTimePickerDividerStyle.separated ? 0.02 : 0)
+                    ),
                     Expanded(
                       child: Divider(
-                        color: widget.pickerTheme.itemTextStyle.color,
+                        color: widget.pickerTheme.dividerColor ?? widget.pickerTheme.itemTextStyle.color,
                         height: 1,
                         thickness: 2,
                       ),
                     ),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
+                    SizedBox(width: MediaQuery.of(context).size.width 
+                      * (widget.pickerTheme.dividerStyle == DateTimePickerDividerStyle.separated ? 0.02 : 0)
+                    ),
                   ],
                 )),
           ),
@@ -260,7 +268,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
       alignment: Alignment.center,
       child: Text(
         DateTimeFormatter.formatDateTime(value, format, widget.locale),
-        style: TextStyle(
+        style: widget.pickerTheme.itemTextStyle ?? TextStyle(
             color: widget.pickerTheme.itemTextStyle.color,
             fontSize: fontSize ?? widget.pickerTheme.itemTextStyle.fontSize),
         //widget.pickerTheme.itemTextStyle ?? DATETIME_PICKER_ITEM_TEXT_STYLE,

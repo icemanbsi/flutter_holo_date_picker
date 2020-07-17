@@ -24,6 +24,11 @@ const Color DATETIME_PICKER_ITEM_TEXT_COLOR = Colors.black;
 const double DATETIME_PICKER_ITEM_TEXT_SIZE_SMALL = 15;
 const double DATETIME_PICKER_ITEM_TEXT_SIZE_BIG = 17;
 
+enum DateTimePickerDividerStyle{
+  separated,
+  solid
+}
+
 /// To support both stable and beta channels until
 /// 'DiagnosticableMixin' is officially deprecated.
 class DateTimePickerTheme with DiagnosticableMixin {
@@ -54,6 +59,8 @@ class DateTimePickerTheme with DiagnosticableMixin {
     this.titleHeight: DATETIME_PICKER_TITLE_HEIGHT,
     this.itemHeight: DATETIME_PICKER_ITEM_HEIGHT,
     this.itemTextStyle: DATETIME_PICKER_ITEM_TEXT_STYLE,
+    this.dividerColor,
+    this.dividerStyle = DateTimePickerDividerStyle.separated,
   });
 
   static const DateTimePickerTheme Default = const DateTimePickerTheme();
@@ -90,4 +97,8 @@ class DateTimePickerTheme with DiagnosticableMixin {
 
   /// The value of DatePicker's column [TextStyle].
   final TextStyle itemTextStyle;
+
+  final Color dividerColor;
+
+  final DateTimePickerDividerStyle dividerStyle;
 }
