@@ -61,6 +61,7 @@ class DateTimePickerTheme with DiagnosticableMixin {
     this.itemTextStyle: DATETIME_PICKER_ITEM_TEXT_STYLE,
     this.dividerColor,
     this.dividerStyle = DateTimePickerDividerStyle.separated,
+    this.dividerThickness,
   });
 
   static const DateTimePickerTheme Default = const DateTimePickerTheme();
@@ -101,4 +102,6 @@ class DateTimePickerTheme with DiagnosticableMixin {
   final Color dividerColor;
 
   final DateTimePickerDividerStyle dividerStyle;
+  
+  final double dividerThickness;
 }
