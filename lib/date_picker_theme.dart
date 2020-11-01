@@ -31,7 +31,7 @@ enum DateTimePickerDividerStyle{
 
 /// To support both stable and beta channels until
 /// 'DiagnosticableMixin' is officially deprecated.
-class DateTimePickerTheme with DiagnosticableMixin {
+class DateTimePickerTheme {
   final cancelDefault = const Text('OK');
 
   /// DateTimePicker theme.
